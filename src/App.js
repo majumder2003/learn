@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from "react-redux";
+import { Cart } from "./assets/components/Cart";
+import Product from "./assets/components/Product";
+import Theme from "./assets/components/Theme";
+import CartTest from "./assets/pages/CartTest";
+import Shop from "./assets/pages/Shop";
+
 
 function App() {
+  const colour = useSelector(state => state.themes);
+  console.log(colour);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{backgroundColor: colour}}>
+      <Cart />
+      <Shop />
+      <CartTest />
+      <Product />
+      <Theme />
     </div>
   );
 }
